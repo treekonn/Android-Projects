@@ -14,13 +14,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txt_logon_hello"
+            android:id="@+id/txt_login_hello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/logon_hello" />
 
         <Button
+            android:id="@+id/btn_login_enter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -29,7 +30,7 @@
             android:textColor="@color/white" />
 
         <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/progress_view"
+            android:id="@+id/cpv_login"
             android:layout_width="@dimen/loader_size"
             android:layout_height="@dimen/loader_size"
             android:layout_gravity="center"
