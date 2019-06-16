@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VK Friends</string>
+    <string name="logon_hello">Нажмите кнопку для просмотра ваших друзей.</string>
+    <string name="logon_enter">Войти</string>
 </resources>

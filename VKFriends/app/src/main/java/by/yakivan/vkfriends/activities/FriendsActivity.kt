@@ -1,12 +1,13 @@
-package by.yakivan.vkfriends
+package by.yakivan.vkfriends.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import by.yakivan.vkfriends.R
 
-class MainActivity : AppCompatActivity() {
+class FriendsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_friends)
     }
 }
