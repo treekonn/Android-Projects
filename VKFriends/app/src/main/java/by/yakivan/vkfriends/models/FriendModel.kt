@@ -1,11 +1,11 @@
 package by.yakivan.vkfriends.models
 
 class FriendModel(
-    private var name: String,
-    private var surname: String,
-    private var city: String?,
-    private var avatar: String?,
-    private var isOnline: Boolean
+    var name: String,
+    var surname: String,
+    var city: String?,
+    var avatar: String?,
+    var isOnline: Boolean
 ) {
 
 }
