@@ -40,16 +40,16 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun filter(query: String) {
         mFriendsList.clear()
         mSourceList.forEach { it ->
-            if (it.name.contains(query, ignoreCase = false)
-                || it.surname.contains(query, ignoreCase = false)
+            if (it.firstName.contains(query, ignoreCase = false)
+                || it.lastName.contains(query, ignoreCase = false)
             ) {
                 mFriendsList.add(it)
             } else {
-                it.city?.let { city ->
-                    if (city.contains(query, ignoreCase = false)) {
-                        mFriendsList.add(it)
-                    }
-                }
+//                it.city?.let { city ->
+//                    if (city.contains(query, ignoreCase = false)) {
+//                        mFriendsList.add(it)
+//                    }
+//                }
             }
         }
         notifyDataSetChanged()
@@ -64,20 +64,20 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
         fun bind(friendModel: FriendModel) {
-            friendModel.avatar?.let { url ->
+            friendModel.photo?.let { url ->
                 Picasso.with(itemView.context)
                     .load(url)
                     .into(mCivAvatar)
             }
 
-            mTxtUsername.text = "${friendModel.name} ${friendModel.surname}"
+            mTxtUsername.text = "${friendModel.firstName} ${friendModel.lastName}"
 
-            mTxtCity.text = friendModel.city
+//            mTxtCity.text = friendModel.city
 
 //            friendModel.city?.let { city -> mTxtCity.text = city }
 //            friendModel.city?.let { mTxtCity.text = it }
 
-            if (friendModel.isOnline) {
+            if (friendModel.id % 2 == 0) {
                 mImgOnline.visibility = View.VISIBLE
             } else {
                 mImgOnline.visibility = View.GONE

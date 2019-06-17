@@ -33,12 +33,18 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
         mCpvWait = findViewById(R.id.cpv_login)
 
         mBtnButton.setOnClickListener {
-            VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
-            //loginPresenter.login(isSuccess = true)
-         }
+//            VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
+            loginPresenter.login(isSuccess = true)
+        }
 
 //        val fingerprints = VKUtils.getCertificateFingerprint(this, this.packageName)
 //        Log.e(TAG, "fingerprint ${fingerprints!![0]}")
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (!loginPresenter.loginVk(requestCode = requestCode, resultCode = resultCode, data = data)) {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun startLoading() {
@@ -51,8 +57,8 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
         mCpvWait.visibility = View.GONE
     }
 
-    override fun showError(text: String) {
-        Toast.makeText(applicationContext, text, Toast.LENGTH_LONG).show()
+    override fun showError(textResource: Int) {
+        Toast.makeText(applicationContext, resources.getText(textResource), Toast.LENGTH_LONG).show()
     }
 
     override fun openFriends() {

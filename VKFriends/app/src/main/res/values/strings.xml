@@ -4,5 +4,6 @@
     <string name="logon_enter">Войти</string>
     <string name="friends_search_hint">Enter your queue here</string>
     <string name="friends_no_item">You haven\'t friends. Loser(</string>
+    <string name="login_error_credentials">Login data is incorrect!</string>
     <integer name="com_vk_sdk_AppId">7024461</integer>
 </resources>
