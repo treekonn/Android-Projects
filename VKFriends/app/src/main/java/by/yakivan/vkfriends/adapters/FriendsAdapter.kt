@@ -31,7 +31,7 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    fun setupFriends(friendsList: ArrayList<FriendModel>) {
+    fun setupFriends(friendsList: List<FriendModel>) {
         mSourceList.clear()
         mSourceList.addAll(friendsList)
         filter("")

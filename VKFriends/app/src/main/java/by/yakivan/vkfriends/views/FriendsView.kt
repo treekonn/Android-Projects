@@ -9,7 +9,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface FriendsView : MvpView {
     fun showError(textResource: Int)
     fun setupEmptyList()
-    fun setupFriendsList(friedsList: ArrayList<FriendModel>)
+    fun setupFriendsList(friedsList: List<FriendModel>)
     fun startLoading()
     fun endLoading()
 }

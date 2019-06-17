@@ -44,6 +44,7 @@ class FriendsProvider(var presenter: FriendsPresenter) {
     fun loadFriends() {
         VK.execute(VKUsersRequest(), object : VKApiCallback<List<FriendModel>> {
             override fun success(result: List<FriendModel>) {
+                presenter.friendLoaded(result)
             }
 
             override fun fail(error: VKApiExecutionException) {

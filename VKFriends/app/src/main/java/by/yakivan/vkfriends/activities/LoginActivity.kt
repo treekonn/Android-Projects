@@ -33,8 +33,8 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
         mCpvWait = findViewById(R.id.cpv_login)
 
         mBtnButton.setOnClickListener {
-//            VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
-            loginPresenter.login(isSuccess = true)
+            VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
+//            loginPresenter.login(isSuccess = true)
         }
 
 //        val fingerprints = VKUtils.getCertificateFingerprint(this, this.packageName)

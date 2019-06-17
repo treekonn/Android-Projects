@@ -69,7 +69,7 @@ class FriendsActivity : MvpAppCompatActivity(), FriendsView {
         mTxtNoItem.visibility = View.VISIBLE
     }
 
-    override fun setupFriendsList(friendsList: ArrayList<FriendModel>) {
+    override fun setupFriendsList(friendsList: List<FriendModel>) {
         mRvFriends.visibility = View.VISIBLE
         mTxtNoItem.visibility = View.GONE
 

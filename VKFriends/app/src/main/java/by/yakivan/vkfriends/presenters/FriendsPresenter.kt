@@ -12,10 +12,11 @@ import kotlinx.android.synthetic.main.activity_friends.view.*
 class FriendsPresenter : MvpPresenter<FriendsView>() {
     fun loadFriends() {
         viewState.startLoading()
-        FriendsProvider(presenter = this).testLoadFriend(hasFriend = true)
+//        FriendsProvider(presenter = this).testLoadFriend(hasFriend = true)
+        FriendsProvider(presenter = this).loadFriends()
     }
 
-    fun friendLoaded(friendsList: ArrayList<FriendModel>) {
+    fun friendLoaded(friendsList: List<FriendModel>) {
         viewState.endLoading()
 
         if (friendsList.size == 0) {
