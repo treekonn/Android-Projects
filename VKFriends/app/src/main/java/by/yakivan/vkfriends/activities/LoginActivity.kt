@@ -12,9 +12,11 @@ import by.yakivan.vkfriends.views.LoginView
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.github.rahatarmanahmed.cpv.CircularProgressView
+import com.vk.api.sdk.VK
+import com.vk.api.sdk.auth.VKScope
 
 class LoginActivity : MvpAppCompatActivity(), LoginView {
-
+    private val TAG: String = LoginActivity::class.java.simpleName
     private lateinit var mTxtHello: TextView
     private lateinit var mBtnButton: Button
     private lateinit var mCpvWait: CircularProgressView
@@ -31,8 +33,12 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
         mCpvWait = findViewById(R.id.cpv_login)
 
         mBtnButton.setOnClickListener {
-            loginPresenter.login(isSuccess = true)
-        }
+            VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
+            //loginPresenter.login(isSuccess = true)
+         }
+
+//        val fingerprints = VKUtils.getCertificateFingerprint(this, this.packageName)
+//        Log.e(TAG, "fingerprint ${fingerprints!![0]}")
     }
 
     override fun startLoading() {
