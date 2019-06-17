@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.support.v7.widget.RecyclerView
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import by.yakivan.vkfriends.R
@@ -34,11 +37,25 @@ class FriendsActivity : MvpAppCompatActivity(), FriendsView {
         mTxtNoItem = findViewById(R.id.txt_friends_no_item)
         mCvpFriends = findViewById(R.id.cpv_friends)
 
+        val mTxtSearch: EditText = findViewById(R.id.txt_friends_search)
+        mTxtSearch.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                mAdapter.filter(query = s.toString())
+            }
+        })
+
         friendsPresenter.loadFriends()
         mAdapter = FriendsAdapter()
 
         mRvFriends.adapter = mAdapter
-        mRvFriends.layoutManager = LinearLayoutManager(applicationContext, OrientationHelper.VERTICAL, false)
+        mRvFriends.layoutManager =
+            LinearLayoutManager(applicationContext, OrientationHelper.VERTICAL, false)
         mRvFriends.setHasFixedSize(true)
     }
 

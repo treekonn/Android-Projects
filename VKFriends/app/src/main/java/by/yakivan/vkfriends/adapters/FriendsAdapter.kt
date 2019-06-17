@@ -11,13 +11,8 @@ import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
 class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+    var mSourceList: ArrayList<FriendModel> = ArrayList()
     var mFriendsList: ArrayList<FriendModel> = ArrayList()
-
-    fun setupFriends(friendsList: ArrayList<FriendModel>) {
-        mFriendsList = friendsList
-        notifyDataSetChanged()
-    }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(p0.context)
@@ -34,6 +29,30 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if (p0 is FriendsViewHolder) {
             p0.bind(mFriendsList[p1])
         }
+    }
+
+    fun setupFriends(friendsList: ArrayList<FriendModel>) {
+        mSourceList.clear()
+        mSourceList.addAll(friendsList)
+        filter("")
+    }
+
+    fun filter(query: String) {
+        mFriendsList.clear()
+        mSourceList.forEach { it ->
+            if (it.name.contains(query, ignoreCase = false)
+                || it.surname.contains(query, ignoreCase = false)
+            ) {
+                mFriendsList.add(it)
+            } else {
+                it.city?.let { city ->
+                    if (city.contains(query, ignoreCase = false)) {
+                        mFriendsList.add(it)
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged()
     }
 
     class FriendsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
