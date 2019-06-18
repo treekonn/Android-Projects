@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:orientation="vertical">
 
         <TextView
@@ -28,16 +29,16 @@
             android:background="@color/colorPrimary"
             android:text="@string/logon_enter"
             android:textColor="@color/white" />
-
-        <com.github.rahatarmanahmed.cpv.CircularProgressView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cpv_login"
-            android:layout_width="@dimen/loader_size"
-            android:layout_height="@dimen/loader_size"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:visibility="gone"
-            app:cpv_animAutostart="true"
-            app:cpv_color="@color/colorPrimary"
-            app:cpv_indeterminate="true" />
     </LinearLayout>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:id="@+id/cpv_login"
+        android:layout_width="@dimen/loader_size"
+        android:layout_height="@dimen/loader_size"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:cpv_animAutostart="true"
+        app:cpv_color="@color/colorPrimary"
+        app:cpv_indeterminate="true" />
 </android.widget.FrameLayout>

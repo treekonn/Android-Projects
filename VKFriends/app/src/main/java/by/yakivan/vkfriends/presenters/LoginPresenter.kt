@@ -12,26 +12,26 @@ import com.vk.api.sdk.auth.VKAuthCallback
 
 @InjectViewState
 class LoginPresenter : MvpPresenter<LoginView>() {
-    fun login(isSuccess: Boolean) {
+    fun loginTEST(isSuccess: Boolean) {
         viewState.startLoading()
         Handler().postDelayed({
             viewState.endLoading()
             if (isSuccess) {
-                viewState.openFriends()
+                viewState.startFriendsActivity()
             } else {
-                viewState.showError(textResource = R.string.login_error_credentials)
+                viewState.showError(textResId = R.string.login_error_credentials)
             }
-        }, 500)
+        }, 2500)
     }
 
     fun loginVk(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
         if (!VK.onActivityResult(requestCode, resultCode, data, object : VKAuthCallback {
                 override fun onLogin(token: VKAccessToken) {
-                    viewState.openFriends()
+                    viewState.startFriendsActivity()
                 }
 
                 override fun onLoginFailed(errorCode: Int) {
-                    viewState.showError(textResource = R.string.login_error_credentials)
+                    viewState.showError(textResId = R.string.login_error_credentials)
                 }
             })) {
             return false

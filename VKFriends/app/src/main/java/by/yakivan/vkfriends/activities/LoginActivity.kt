@@ -33,6 +33,7 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
 
         mBtnButton.setOnClickListener {
             VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
+//            loginPresenter.loginTEST(true)
         }
     }
 
@@ -43,12 +44,12 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
     }
 
     override fun startLoading() {
-        mBtnButton.visibility = View.GONE
+        mBtnButton.isClickable = false
         mCpvWait.visibility = View.VISIBLE
     }
 
     override fun endLoading() {
-        mBtnButton.visibility = View.VISIBLE
+        mBtnButton.isClickable = true
         mCpvWait.visibility = View.GONE
     }
 
@@ -56,7 +57,7 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
         Toast.makeText(applicationContext, resources.getText(textResource), Toast.LENGTH_LONG).show()
     }
 
-    override fun openFriends() {
+    override fun startFriendsActivity() {
         startActivity(Intent(applicationContext, FriendsActivity::class.java))
     }
 }

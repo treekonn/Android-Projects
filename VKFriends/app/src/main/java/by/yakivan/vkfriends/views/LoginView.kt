@@ -8,6 +8,6 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 interface LoginView : MvpView {
     fun startLoading()
     fun endLoading()
-    fun showError(textResource: Int)
-    fun openFriends()
+    fun showError(textResId: Int)
+    fun startFriendsActivity()
 }

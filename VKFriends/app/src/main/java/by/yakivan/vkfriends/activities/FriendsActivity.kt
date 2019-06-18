@@ -26,7 +26,6 @@ class FriendsActivity : MvpAppCompatActivity(), FriendsView {
 
     private lateinit var mAdapter: FriendsAdapter
     private lateinit var mRvFriends: RecyclerView
-    private lateinit var mTxtNoItem: TextView
     private lateinit var mCvpFriends: CircularProgressView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,6 @@ class FriendsActivity : MvpAppCompatActivity(), FriendsView {
         setContentView(R.layout.activity_friends)
 
         mRvFriends = findViewById(R.id.recycler_friends)
-        mTxtNoItem = findViewById(R.id.txt_friends_no_item)
         mCvpFriends = findViewById(R.id.cpv_friends)
 
         val mTxtSearch: EditText = findViewById(R.id.txt_friends_search)
@@ -50,35 +48,27 @@ class FriendsActivity : MvpAppCompatActivity(), FriendsView {
             }
         })
 
-        friendsPresenter.loadFriends()
+        friendsPresenter.loadFriendsVk()
         mAdapter = FriendsAdapter()
 
         mRvFriends.adapter = mAdapter
         mRvFriends.layoutManager =
-            LinearLayoutManager(applicationContext, OrientationHelper.VERTICAL, false)
+                LinearLayoutManager(applicationContext, OrientationHelper.VERTICAL, false)
         mRvFriends.setHasFixedSize(true)
     }
 
-    override fun showError(textResource: Int) {
-        mTxtNoItem.text = getString(textResource)
-        Toast.makeText(applicationContext, getString(textResource), Toast.LENGTH_LONG).show()
-    }
-
-    override fun setupEmptyList() {
-        mRvFriends.visibility = View.GONE
-        mTxtNoItem.visibility = View.VISIBLE
+    override fun showError(textResId: Int) {
+        Toast.makeText(applicationContext, getString(textResId), Toast.LENGTH_LONG).show()
     }
 
     override fun setupFriendsList(friendsList: List<FriendModel>) {
         mRvFriends.visibility = View.VISIBLE
-        mTxtNoItem.visibility = View.GONE
 
         mAdapter.setupFriends(friendsList = friendsList)
     }
 
     override fun startLoading() {
         mRvFriends.visibility = View.GONE
-        mTxtNoItem.visibility = View.GONE
         mCvpFriends.visibility = View.VISIBLE
     }
 

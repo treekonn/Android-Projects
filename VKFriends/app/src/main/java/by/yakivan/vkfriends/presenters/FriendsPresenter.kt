@@ -6,23 +6,25 @@ import by.yakivan.vkfriends.providers.FriendsProvider
 import by.yakivan.vkfriends.views.FriendsView
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import kotlinx.android.synthetic.main.activity_friends.view.*
 
 @InjectViewState
 class FriendsPresenter : MvpPresenter<FriendsView>() {
-    fun loadFriends() {
+    fun loadFriendsVk() {
         viewState.startLoading()
-//        FriendsProvider(presenter = this).testLoadFriend(hasFriend = true)
-        FriendsProvider(presenter = this).loadFriends()
+        FriendsProvider(presenter = this).loadFriendsVk()
     }
 
     fun friendLoaded(friendsList: List<FriendModel>) {
         viewState.endLoading()
 
         if (friendsList.size == 0) {
-            viewState.showError(R.string.friends_no_item)
-            viewState.setupEmptyList()
+            viewState.showError(textResId = R.string.friends_no_item)
         } else
-            viewState.setupFriendsList(friendsList)
+            viewState.setupFriendsList(friendsList = friendsList)
+    }
+
+    fun loadFriendsTEST() {
+        viewState.startLoading()
+        FriendsProvider(presenter = this).loadFriendsTEST(hasFriend = true)
     }
 }

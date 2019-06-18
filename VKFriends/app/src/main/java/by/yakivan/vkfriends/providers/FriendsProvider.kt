@@ -9,7 +9,7 @@ import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
 
 class FriendsProvider(var presenter: FriendsPresenter) {
-    fun testLoadFriend(hasFriend: Boolean) {
+    fun loadFriendsTEST(hasFriend: Boolean) {
         Handler().postDelayed({
             val friendsList: ArrayList<FriendModel> = ArrayList()
             if (hasFriend) {
@@ -41,7 +41,7 @@ class FriendsProvider(var presenter: FriendsPresenter) {
         }, 2000)
     }
 
-    fun loadFriends() {
+    fun loadFriendsVk() {
         VK.execute(VKUsersRequest(), object : VKApiCallback<List<FriendModel>> {
             override fun success(result: List<FriendModel>) {
                 presenter.friendLoaded(result)
