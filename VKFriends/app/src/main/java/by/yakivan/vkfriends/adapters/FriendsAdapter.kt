@@ -40,8 +40,8 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun filter(query: String) {
         mFriendsList.clear()
         mSourceList.forEach { it ->
-            if (it.firstName.contains(query, ignoreCase = false)
-                || it.lastName.contains(query, ignoreCase = false)
+            if (it.firstName.contains(query, ignoreCase = true)
+                || it.lastName.contains(query, ignoreCase = true)
             ) {
                 mFriendsList.add(it)
             } else {
@@ -72,12 +72,12 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             mTxtUsername.text = "${friendModel.firstName} ${friendModel.lastName}"
 
-//            mTxtCity.text = friendModel.city
+            mTxtCity.text = friendModel.city
 
 //            friendModel.city?.let { city -> mTxtCity.text = city }
 //            friendModel.city?.let { mTxtCity.text = it }
 
-            if (friendModel.id % 2 == 0) {
+            if (friendModel.online) {
                 mImgOnline.visibility = View.VISIBLE
             } else {
                 mImgOnline.visibility = View.GONE

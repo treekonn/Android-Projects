@@ -8,7 +8,9 @@ data class FriendModel(
     val id: Int = 0,
     val firstName: String = "",
     val lastName: String = "",
-    val photo: String = ""
+    val photo: String = "",
+    val online: Boolean = false,
+    val city: String = ""
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -42,7 +44,8 @@ data class FriendModel(
             id = json.optInt("id", 0),
             firstName = json.optString("first_name", ""),
             lastName = json.optString("last_name", ""),
-            photo = json.optString("photo_200", "")
+            photo = json.optString("photo_200", ""),
+            online = (json.optInt("online", 0) == 1)
         )
     }
 }

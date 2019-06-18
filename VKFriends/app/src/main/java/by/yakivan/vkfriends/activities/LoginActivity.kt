@@ -16,7 +16,6 @@ import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKScope
 
 class LoginActivity : MvpAppCompatActivity(), LoginView {
-    private val TAG: String = LoginActivity::class.java.simpleName
     private lateinit var mTxtHello: TextView
     private lateinit var mBtnButton: Button
     private lateinit var mCpvWait: CircularProgressView
@@ -34,11 +33,7 @@ class LoginActivity : MvpAppCompatActivity(), LoginView {
 
         mBtnButton.setOnClickListener {
             VK.login(this@LoginActivity, listOf(VKScope.FRIENDS))
-//            loginPresenter.login(isSuccess = true)
         }
-
-//        val fingerprints = VKUtils.getCertificateFingerprint(this, this.packageName)
-//        Log.e(TAG, "fingerprint ${fingerprints!![0]}")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
