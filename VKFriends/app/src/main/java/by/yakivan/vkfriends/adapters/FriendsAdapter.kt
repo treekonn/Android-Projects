@@ -65,9 +65,10 @@ class FriendsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(friendModel: FriendModel) {
             friendModel.photo?.let { url ->
-                Picasso.with(itemView.context)
-                    .load(url)
-                    .into(mCivAvatar)
+                if (url.length > 0)
+                    Picasso.with(itemView.context)
+                        .load(url)
+                        .into(mCivAvatar)
             }
 
             mTxtUsername.text = "${friendModel.firstName} ${friendModel.lastName}"

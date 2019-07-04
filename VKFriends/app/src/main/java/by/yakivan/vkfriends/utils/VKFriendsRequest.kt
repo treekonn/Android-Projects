@@ -12,7 +12,7 @@ class VKUsersRequest : VKRequest<List<FriendModel>> {
 //            addParam("user_id", null)
 //        }
         addParam("fields", "photo_200, user_id, first_name, last_name, online, city")
-        addParam("count", 15)
+//        addParam("count", 25)
     }
 
     override fun parse(r: JSONObject): List<FriendModel> {
