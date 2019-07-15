@@ -9,14 +9,14 @@ class AI {
             database.put("how are you", "Fine, Are you? ")
             database.put("what is you name", "I am a droid! ")
 
-            var reqQuestionLower = reqQuestion.toLowerCase()
+            var userQuestion = reqQuestion.toLowerCase()
             val answers = StringBuffer()
 
             for (question in database.keys) {
-                if (reqQuestionLower.contains(question))
+                if (userQuestion.contains(question))
                     database[question]?.let { answers.append(it) }
             }
-
+            Weather.get("Minsk")
             if (answers.isNotEmpty()) {
                 return answers.toString()
             }
