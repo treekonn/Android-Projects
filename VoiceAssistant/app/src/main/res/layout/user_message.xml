@@ -15,19 +15,19 @@
         android:src="@drawable/ic_tag_face" />
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/txt_msg_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="4dp"
         android:layout_toStartOf="@id/image_view"
-        tools:text="ivankeo" />
+        android:text="Ivan Yakimovich" />
 
     <TextView
-        android:id="@+id/txt_message"
+        android:id="@+id/txt_msg_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/user_name"
+        android:layout_below="@id/txt_msg_username"
         android:layout_toStartOf="@id/image_view"
         android:background="@drawable/purple_bubble"
         android:padding="10dp"
@@ -35,4 +35,11 @@
         android:textSize="15sp"
         tools:text="Hello, Hello, Hello,  Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, " />
 
+    <TextView
+        android:id="@+id/txt_msg_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_msg_text"
+        android:layout_alignEnd="@id/txt_msg_text"
+        tools:text="21.01.1995" />
 </RelativeLayout>
