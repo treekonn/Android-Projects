@@ -23,11 +23,10 @@ class MainActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             val userMsg = txtQuestion.text.toString()
             txtQuestion.setText("")
-            msgContoller.addMsg(userMsg)
+            msgContoller.addMsg(userMsg, Message.USER)
 
             val answer = AI.getAnswer(userMsg)
-            msgContoller.addMsg(answer)
-
+            msgContoller.addMsg(answer, Message.ASSISTANT)
         }
     }
 }
