@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/nav_str_hero_attr"
+        android:icon="@drawable/strength_icon"
+        android:title="Strength" />
+
+    <item
+        android:id="@+id/nav_agi_hero_attr"
+        android:icon="@drawable/agility_icon"
+        android:title="Agility" />
+
+    <item
+        android:id="@+id/nav_int_hero_attr"
+        android:icon="@drawable/intelligence_icon"
+        android:title="Intelligence"
+        tools:title="Intelligence" />
+
+</menu>
