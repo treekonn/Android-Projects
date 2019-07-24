@@ -5,17 +5,17 @@
 
     <item
         android:id="@+id/nav_str_hero_attr"
-        android:icon="@drawable/strength_icon"
+        android:icon="@drawable/ic_strength"
         android:title="Strength" />
 
     <item
         android:id="@+id/nav_agi_hero_attr"
-        android:icon="@drawable/agility_icon"
+        android:icon="@drawable/ic_agility"
         android:title="Agility" />
 
     <item
         android:id="@+id/nav_int_hero_attr"
-        android:icon="@drawable/intelligence_icon"
+        android:icon="@drawable/ic_intelligence"
         android:title="Intelligence"
         tools:title="Intelligence" />
 
