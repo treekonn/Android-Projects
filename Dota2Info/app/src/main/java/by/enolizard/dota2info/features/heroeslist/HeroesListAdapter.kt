@@ -6,7 +6,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import by.enolizard.dota2info.R
-import by.enolizard.dota2info.debug
 import by.enolizard.dota2info.entities.Hero
 import by.enolizard.dota2info.inflate
 import by.enolizard.dota2info.loadImg
@@ -22,7 +21,7 @@ class HeroesListAdapter : RecyclerView.Adapter<HeroesListAdapter.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(item = items[position])
     }
 
     fun setData(body: List<Hero.Dto>) {

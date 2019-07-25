@@ -8,13 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import by.enolizard.dota2info.R
-import by.enolizard.dota2info.api.ApiService
 import by.enolizard.dota2info.inflate
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.frag_heroes_list.*
 
 class HeroesListFragment : Fragment() {
@@ -47,19 +42,17 @@ class HeroesListFragment : Fragment() {
             }
             true
         }
-        bnv_hero_attr_types.setOnNavigationItemReselectedListener {
-        }
+        bnv_hero_attr_types.setOnNavigationItemReselectedListener {        }
         viewModel.onClick("str")
 
         val adapter = HeroesListAdapter()
-
         rv_heroes_list.apply {
             layoutManager = GridLayoutManager(context, 3)
             this.adapter = adapter
             setHasFixedSize(true)
         }
 
-        viewModel.getHeroes().observe(this, Observer {
+        viewModel.heroes.observe(this, Observer {
             adapter.setData(it)
         })
     }

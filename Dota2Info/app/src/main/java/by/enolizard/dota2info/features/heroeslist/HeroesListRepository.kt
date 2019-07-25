@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 class HeroesListRepository {
 
     fun getAllHeroes(): Single<List<Hero.Dto>> {
-        return ApiService.rxHeroesList
+        return ApiService.fullHeroesList
             .subscribeOn(Schedulers.io())
             .map { res -> res.body()!! }
     }
