@@ -8,16 +8,6 @@
     <FrameLayout
         android:id="@+id/container_main"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv_hero_attr_types"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bnv_background"
-        app:itemIconSize="28dp"
-        app:labelVisibilityMode="selected"
-        app:menu="@menu/hero_attribute_types" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

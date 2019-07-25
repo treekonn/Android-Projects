@@ -26,6 +26,7 @@ class HeroesListAdapter : RecyclerView.Adapter<HeroesListAdapter.ViewHolder>() {
     }
 
     fun setData(body: List<Hero.Dto>) {
+        items.clear()
         items.addAll(body)
         notifyDataSetChanged()
     }

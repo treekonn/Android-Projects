@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bnv_hero_attr_types.itemIconTintList = null
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.container_main, HeroesListFragment())
