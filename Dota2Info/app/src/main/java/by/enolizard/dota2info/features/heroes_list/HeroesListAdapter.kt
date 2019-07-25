@@ -1,4 +1,4 @@
-package by.enolizard.dota2info.features.heroeslist
+package by.enolizard.dota2info.features.heroes_list
 
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import by.enolizard.dota2info.inflate
 import by.enolizard.dota2info.loadImg
 import kotlinx.android.synthetic.main.item_heroes.view.*
 
-class HeroesListAdapter : RecyclerView.Adapter<HeroesListAdapter.ViewHolder>() {
+class HeroesListAdapter(private val itemClick: View.OnClickListener) : RecyclerView.Adapter<HeroesListAdapter.ViewHolder>() {
 
     private val items = ArrayList<Hero.Dto>()
 
@@ -30,11 +30,14 @@ class HeroesListAdapter : RecyclerView.Adapter<HeroesListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val ivAvatar: ImageView = itemView.iv_hero_avatar_item
         private val tvName: TextView = itemView.tv_hero_name_item
 
+        init {
+            itemView.setOnClickListener(itemClick)
+        }
         fun bind(item: Hero.Dto) {
             ivAvatar.loadImg(item.avatarUrl)
             tvName.text = item.name

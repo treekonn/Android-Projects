@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_hero_avatar_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_strength"
+            tools:src="@drawable/ic_strength" />
+
+        <TextView
+            android:id="@+id/tv_hero_name_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/iv_hero_avatar_profile"
+            android:text="Axe"
+            android:textSize="20sp"
+            tools:text="Axe" />
+
+        <TextView
+            android:id="@+id/tv_hero_percent_win_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="50 %"
+            android:textSize="30sp"
+            tools:text="50 %" />
+
+
+        <TextView
+            android:id="@+id/tv_hero_count_win_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_hero_name_profile"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/iv_hero_avatar_profile"
+            android:text="Побед: 123"
+            android:textSize="16sp"
+            tools:text="Побед: 123" />
+
+        <TextView
+            android:id="@+id/tv_hero_count_lose_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_hero_count_win_profile"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/iv_hero_avatar_profile"
+            android:text="Поражений: 123"
+            android:textSize="16sp"
+            tools:text="Поражений: 123" />
+
+    </RelativeLayout>
+</LinearLayout>

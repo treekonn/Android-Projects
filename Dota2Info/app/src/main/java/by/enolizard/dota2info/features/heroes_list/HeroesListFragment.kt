@@ -1,4 +1,4 @@
-package by.enolizard.dota2info.features.heroeslist
+package by.enolizard.dota2info.features.heroes_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import by.enolizard.dota2info.R
+import by.enolizard.dota2info.features.hero_profile.HeroProfileFragment
 import by.enolizard.dota2info.inflate
 import kotlinx.android.synthetic.main.frag_heroes_list.*
 
@@ -26,7 +27,6 @@ class HeroesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProviders.of(this).get(HeroesListViewModel::class.java)
     }
 
@@ -42,10 +42,16 @@ class HeroesListFragment : Fragment() {
             }
             true
         }
-        bnv_hero_attr_types.setOnNavigationItemReselectedListener {        }
+        bnv_hero_attr_types.setOnNavigationItemReselectedListener { }
         viewModel.onClick("str")
 
-        val adapter = HeroesListAdapter()
+        val adapter = HeroesListAdapter(View.OnClickListener {
+            fragmentManager?.beginTransaction()?.apply {
+                replace(R.id.container_main, HeroProfileFragment())
+                addToBackStack(null)
+                commit()
+            }
+        })
         rv_heroes_list.apply {
             layoutManager = GridLayoutManager(context, 3)
             this.adapter = adapter
@@ -56,4 +62,6 @@ class HeroesListFragment : Fragment() {
             adapter.setData(it)
         })
     }
+
+
 }

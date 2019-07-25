@@ -1,4 +1,4 @@
-package by.enolizard.dota2info.features.heroeslist
+package by.enolizard.dota2info.features.heroes_list
 
 import by.enolizard.dota2info.api.ApiService
 import by.enolizard.dota2info.entities.Hero

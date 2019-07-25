@@ -3,7 +3,7 @@ package by.enolizard.dota2info.features
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.enolizard.dota2info.R
-import by.enolizard.dota2info.features.heroeslist.HeroesListFragment
+import by.enolizard.dota2info.features.heroes_list.HeroesListFragment
 
 class MainActivity : AppCompatActivity() {
 

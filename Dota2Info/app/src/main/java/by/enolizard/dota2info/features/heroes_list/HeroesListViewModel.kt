@@ -1,4 +1,4 @@
-package by.enolizard.dota2info.features.heroeslist
+package by.enolizard.dota2info.features.heroes_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
