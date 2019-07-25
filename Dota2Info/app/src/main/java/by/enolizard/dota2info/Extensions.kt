@@ -6,9 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View =
     LayoutInflater.from(this.context).inflate(layoutId, this, attachToRoot)

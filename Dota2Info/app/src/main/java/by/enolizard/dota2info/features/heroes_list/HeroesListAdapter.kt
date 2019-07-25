@@ -38,6 +38,7 @@ class HeroesListAdapter(private val itemClick: View.OnClickListener) : RecyclerV
         init {
             itemView.setOnClickListener(itemClick)
         }
+
         fun bind(item: Hero.Dto) {
             ivAvatar.loadImg(item.avatarUrl)
             tvName.text = item.name

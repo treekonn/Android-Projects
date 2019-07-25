@@ -6,11 +6,11 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-object ApiService {
+class ApiService {
+
+    fun openDotaApi() = openDotaApi
 
     private val openDotaApi: OpenDotaApi by lazy { createOpenDotaApi() }
-
-    val fullHeroesList get() = openDotaApi.getFullHeroesList()
 
     private fun createOpenDotaApi(): OpenDotaApi {
         val logging = HttpLoggingInterceptor()

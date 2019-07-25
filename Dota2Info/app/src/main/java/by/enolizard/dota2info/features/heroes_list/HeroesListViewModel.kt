@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import by.enolizard.dota2info.entities.Hero
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 class HeroesListViewModel : ViewModel() {
 
@@ -15,10 +16,9 @@ class HeroesListViewModel : ViewModel() {
 
     fun onClick(attr: String) {
         heroesUpdateChain?.dispose()
-        heroesUpdateChain = repository.getAllHeroes()
+        heroesUpdateChain = repository.getHeroesByAttr(attr = attr)
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { items ->
-                heroes.value = items.filter { it.attribute == attr }
-            }
+            .subscribe(heroes::setValue)
     }
 }

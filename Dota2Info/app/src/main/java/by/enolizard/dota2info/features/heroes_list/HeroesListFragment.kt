@@ -52,6 +52,7 @@ class HeroesListFragment : Fragment() {
                 commit()
             }
         })
+
         rv_heroes_list.apply {
             layoutManager = GridLayoutManager(context, 3)
             this.adapter = adapter
