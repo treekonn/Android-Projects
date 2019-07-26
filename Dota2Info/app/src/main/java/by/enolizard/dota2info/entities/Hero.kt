@@ -2,6 +2,7 @@ package by.enolizard.dota2info.entities
 
 import androidx.room.*
 import com.squareup.moshi.Json
+import io.reactivex.Single
 
 interface Hero {
     class Dto(
@@ -31,7 +32,7 @@ interface Hero {
     interface Dao {
 
         @Query("SELECT * FROM all_heroes")
-        fun getAllHeroes(): List<Entity>
+        fun getAllHeroes(): Single<List<Entity>>
 
         @Insert
         fun insertAllHeroes(list: List<Entity>)
@@ -47,4 +48,14 @@ interface Hero {
     ) {
         val avatarUrl get() = "http://cdn.dota2.com/apps/dota2/images/heroes/${codeName}_lg.png"
     }
+}
+
+fun List<Hero.Dto>.toEntities(): List<Hero.Entity> {
+    val entities: MutableList<Hero.Entity> = ArrayList()
+
+    this.forEach {
+        entities.add(it.toEntity())
+    }
+
+    return entities
 }

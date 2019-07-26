@@ -11,7 +11,7 @@ class HeroesListViewModel : ViewModel() {
 
     private val repository: HeroesListRepository = HeroesListRepository()
 
-    val heroes: MutableLiveData<List<Hero.Dto>> = MutableLiveData()
+    val heroes: MutableLiveData<List<Hero.Entity>> = MutableLiveData()
     private var heroesUpdateChain: Disposable? = null
 
     fun onClick(attr: String) {
